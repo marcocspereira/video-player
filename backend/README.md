@@ -14,6 +14,7 @@ The existing dependencies in this API:
 * Django >= `3.0.8`, but less than `3.1.0`
 * Django Rest Framework >= `3.11.0`, but less than `3.12.0`
 * Flake8 >= `3.8.3`, but less than `3.9.0`
+* Factory-boy >= `2.12.0`, but less than `2.13.0`
 
 ```bash
 # to run requirements
