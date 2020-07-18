@@ -5,7 +5,7 @@ class History(models.Model):
   """
   Class that handles the history data
   """
-  url = models.CharField(max_length=256, unique=True, null=False)
+  url = models.CharField(max_length=256, unique=True, null=False, blank=False)
 
   def str(self):
     """
