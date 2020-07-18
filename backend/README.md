@@ -20,7 +20,7 @@ To use a new shell that ensures all commands have access to installed packages u
 $ pipenv shell
 ```
 
-Then, run the following commands
+Then, run the following commands. The project is inside `video-player/backend`
 
 ## Requirements
 
