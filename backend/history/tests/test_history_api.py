@@ -20,7 +20,7 @@ class HistoryAPIViewTest(APITestCase):
 
   def setUp(self):
     self.post_data_ok = {
-      'url': factory.Faker('url')
+      'url': 'https://www.youtube.com/watch?v=9ao4FEaDGhQ'
     }
 
     self.post_data_nil = {
@@ -29,7 +29,7 @@ class HistoryAPIViewTest(APITestCase):
 
     self.post_data_not_unique = self.post_data_ok
 
-    create_history(url='ze')
+    create_history(url='https://www.youtube.com/watch?v=cMjwSnzrbCY')
 
 
   def test_create_history_sucess(self):
@@ -37,7 +37,6 @@ class HistoryAPIViewTest(APITestCase):
     Test create a tyre without any problem
     """
     res = self.client.post(HISTORY_LIST_URL, self.post_data_ok)
-
     # assertion
     self.assertEqual(res.status_code, status.HTTP_201_CREATED)
 

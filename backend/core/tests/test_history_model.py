@@ -25,7 +25,7 @@ class HistoryModelTests(TestCase):
         """
         Test that a History cannot be created with a non-unique url
         """
-        HistoryFactory.create(url='123')
+        HistoryFactory.create(url='https://www.youtube.com/watch?v=9ao4FEaDGhQ')
 
         with self.assertRaises(IntegrityError):
-            HistoryFactory.create(url='123')
+            HistoryFactory.create(url='https://www.youtube.com/watch?v=9ao4FEaDGhQ')
