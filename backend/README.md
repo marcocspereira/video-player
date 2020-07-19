@@ -7,6 +7,12 @@ This application provides 2 routes to:
 
 This application is testable with an API tester like [Postman](https://www.getpostman.com).
 
+
+* The project is organized with two main apps:
+
+  * **core:** manages the migrations, models and their tests for all project;
+  * **history:** manages the logic for history records with urls, serializers, views and API tests.
+
 ## Usage
 
 Please make sure that you have:
@@ -38,7 +44,8 @@ $ pip install -r requirements.txt
 
 ## Run migrations
 
-```
+```bash
+$ python manage.py makemigrations
 $ python manage.py migrate
 ```
 
@@ -74,5 +81,6 @@ $ python manage.py test **/*/.
 **POST**
 * check if the verb is **POST**
 * Enter the previous address in address bar
+* Select **Body** and set a key-value pair: *key* must be **url** and the *value* the YouTube Video URL.
 * It returns the new url and you can check it when you try to use **GET**
 ![POST example](images/post_postman.png)
