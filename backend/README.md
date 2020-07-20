@@ -13,7 +13,7 @@ This application is testable with an API tester like [Postman](https://www.getpo
   * **core:** manages the migrations, models and their tests for all project;
   * **history:** manages the logic for history records with urls, serializers, views and API tests.
 
-## Usage
+## How to run the API in my machine
 
 Please make sure that you have:
 * **Python**
@@ -28,7 +28,7 @@ $ pipenv shell
 
 Then, run the following commands. The project is inside `video-player/backend`
 
-## Requirements
+### Requirements
 
 The existing dependencies in this API:
 
@@ -42,18 +42,24 @@ The existing dependencies in this API:
 $ pip install -r requirements.txt
 ```
 
-## Run migrations
+### Run migrations
 
 ```bash
+# to create the migrations according the existing models
 $ python manage.py makemigrations
+# to trigger the migrations
 $ python manage.py migrate
 ```
 
-## Run server
+### Run server
 
 ```bash
 $ python manage.py runserver
 ```
+
+**One note:** the URL must have one of the following substrings:
+* `youtube.com/watch?`
+* `youtu.be`
 
 ### To access History API
 
