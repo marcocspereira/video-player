@@ -57,7 +57,7 @@ $ python manage.py migrate
 $ python manage.py runserver
 ```
 
-**One note:** the URL must have one of the following substrings:
+**One note:** the received YouTube video URLs must have one of the following substrings:
 * `youtube.com/watch?`
 * `youtu.be`
 

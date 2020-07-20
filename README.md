@@ -20,6 +20,8 @@ The small Django application stores and lists the player history with a simple E
 
 ## Front End
 
+The Angular application is composed of an input form, just below a video view (player or empty square if there is nothing to display) and, additionally, lists of bookmarks and history.
+
 ### Requirements
 * Receive YouTube video URLs
 * List bookmarks
