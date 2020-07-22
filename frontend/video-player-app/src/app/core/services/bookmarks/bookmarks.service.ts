@@ -31,5 +31,4 @@ export class BookmarksService {
     window.localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
 
   }
-
 }
