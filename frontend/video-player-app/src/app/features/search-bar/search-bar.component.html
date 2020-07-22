@@ -1,0 +1,8 @@
+<mat-form-field [style.min-width.px]=500>
+  <mat-label>YouTube Video URL</mat-label>
+  <input matInput [formControl]="searchBarFormControl" placeholder="YouTube video URL">
+  <mat-error>Please enter a valid YouTube video URL</mat-error>
+</mat-form-field>
+<button mat-mini-fab color="warn" class="example-icon" aria-label="Search button" (click)="sendUrl()">
+  <mat-icon>add</mat-icon>
+</button>
