@@ -1,0 +1,15 @@
+<mat-button-toggle-group #group="matButtonToggleGroup" value={{selectedOption}}>
+  <mat-button-toggle value="history" aria-label="History Videos">
+    <mat-icon>history</mat-icon>
+  </mat-button-toggle>
+  <mat-button-toggle value="bookmarks" aria-label="Bookmarked Videos">
+    <mat-icon>bookmarks</mat-icon>
+  </mat-button-toggle>
+</mat-button-toggle-group>
+
+
+<app-history *ngIf="group.value == 'history'; else bookmarks"></app-history>
+
+<ng-template #bookmarks>
+  <app-bookmarks></app-bookmarks>
+</ng-template>

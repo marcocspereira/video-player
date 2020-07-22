@@ -1,0 +1,4 @@
+<div class="container">
+  <app-search-bar (messageEvent)="receiveMessage($event)"></app-search-bar>
+  <app-video-view [youtubeVideo]="urlToPlay" (messageEvent)="manageBookmarking($event)"></app-video-view>
+</div>
