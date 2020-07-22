@@ -21,6 +21,9 @@ export class SearchBarComponent implements OnInit {
   searchBarFormControl = new FormControl('', [Validators.pattern(this.youTubeUrlPattern)])
 
   sendUrl(): void {
+    if (this.searchBarFormControl.invalid) {
+      return;
+    }
     this.messageEvent.emit(this.searchBarFormControl.value);
   }
 
