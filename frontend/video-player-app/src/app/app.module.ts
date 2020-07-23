@@ -14,6 +14,7 @@ import { HistoryComponent } from './features/history/history.component';
 import { BookmarksComponent } from './features/bookmarks/bookmarks.component';
 import { SidebarComponent } from './core/layout/sidebar/sidebar.component';
 import { MainContentComponent } from './core/layout/main-content/main-content.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MainContentComponent } from './core/layout/main-content/main-content.co
     SearchBarModule,
     VideoViewModule,
     HistoryModule,
-    BookmarksModule
+    BookmarksModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

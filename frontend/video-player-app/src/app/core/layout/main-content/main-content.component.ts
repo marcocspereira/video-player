@@ -21,7 +21,8 @@ export class MainContentComponent implements OnInit, OnDestroy {
     private _sharedData: SharedDataService,
     private _snackBar: SnackBarService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this._historyService.getHistoryFromApi();
     this._initSubscriptions();
   }
 
@@ -42,11 +43,11 @@ export class MainContentComponent implements OnInit, OnDestroy {
     this.addUrlToHistory($event);
   }
 
-  private addUrlToHistory(url: string): void {
+  private async addUrlToHistory(url: string): Promise<void> {
     if (this._historyService.isInHistory(url)) {
       return;
     }
-    this._historyService.addToHistory(url);
+    await this._historyService.addToHistory(url);
     this._sharedData.updateUrl(url);
   }
 

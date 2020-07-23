@@ -1,4 +1,6 @@
-# VideoPlayerApp
+# Front-End | VideoPlayerApp
+
+**Make sure that you are inside `frontend/video-player-app` folder to proceed with the following information.**
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
 

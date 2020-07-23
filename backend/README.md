@@ -1,4 +1,6 @@
-# Video-Player API
+# Back-End | Video-Player API
+
+**Make sure that you are inside `bakend` folder to proceed with the following information.**
 
 This application provides 2 routes to: 
 
@@ -36,6 +38,7 @@ The existing dependencies in this API:
 * Django Rest Framework >= `3.11.0`, but less than `3.12.0`
 * Flake8 >= `3.8.3`, but less than `3.9.0`
 * Factory-boy >= `2.12.0`, but less than `2.13.0`
+* Django CORS Headers >= `3.4.0`, but less than `3.5.0`
 
 ```bash
 # to run requirements
@@ -50,6 +53,10 @@ $ python manage.py makemigrations
 # to trigger the migrations
 $ python manage.py migrate
 ```
+
+### Database
+
+The data is persisted with a `db.sqlite3` file that is created when you run the migrations commands.
 
 ### Run server
 
