@@ -10,18 +10,27 @@ export class ApiService {
   api = environment.apiPath;
   constructor(private _http: HttpClient) { }
 
-  get(url: string): Promise<any> {
-    return this._http.get(this._urlMaker(url)).toPromise()
-      .catch((err: HttpErrorResponse) => {
-        console.warn(`[API Service] An error occured: ${err.error}`)
-      });
+  /**
+   * get and post rerurn an Observable, and i'm using a .toPromise()
+   * because there's no advantage to observe a request that happens once
+   */
+
+  async get(url: string): Promise<any> {
+    try {
+      return this._http.get(this._urlMaker(url)).toPromise();
+    }
+    catch (err) {
+      console.warn(`[API Service] An error occured: ${err.error}`);
+    }
   }
 
-  post(url: string, data: any): Promise<any> {
-    return this._http.post(this._urlMaker(url), data).toPromise()
-      .catch((err: HttpErrorResponse) => {
-        console.warn(`[API Service] An error occured: ${err.error}`)
-      });
+  async post(url: string, data: any): Promise<any> {
+    try {
+      return this._http.post(this._urlMaker(url), data).toPromise();
+    }
+    catch (err) {
+      console.warn(`[API Service] An error occured: ${err.error}`);
+    }
   }
 
   private _urlMaker(url) {

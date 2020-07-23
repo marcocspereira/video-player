@@ -15,8 +15,8 @@ export class VideoViewComponent implements OnInit {
       return;
     }
     this._youtubeVideo = value;
-    this.videoId = this.parseYouTubeUrl(value.url);
-    const bookmarkInfo = this.parseBookmarkStatus(value.bookmarked);
+    this.videoId = this._parseYouTubeUrl(value.url);
+    const bookmarkInfo = this._parseBookmarkStatus(value.bookmarked);
     this.bookmarksButtonColor = bookmarkInfo['color'];
     this.bookmarksButtonText = bookmarkInfo['text'];
   }
@@ -24,35 +24,49 @@ export class VideoViewComponent implements OnInit {
     return this._youtubeVideo;
   }
 
+  /**
+   * To support the information about the URL to book/unbook
+   */
   @Output() messageEvent = new EventEmitter<YoutubeUrl>();
 
+  /**
+   * Data to display in the video player
+   */
   videoId = '';
+  /**
+   * Some data to configure the bookmark button
+   */
   bookmarksButtonText = '';
   bookmarksButtonColor = '';
 
   constructor() { }
 
   ngOnInit(): void {
-    this.initializeYouTubePlayer();
-    this.initializeDefaultsBookmarksButton();
+    this._initializeYouTubePlayer();
+    this._initializeDefaultsBookmarksButton();
   }
 
   emitBookmarkManaging() {
     this.messageEvent.emit(this.youtubeVideo);
   }
 
-  private initializeYouTubePlayer(): void {
+  private _initializeYouTubePlayer(): void {
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
   }
 
-  private initializeDefaultsBookmarksButton(): void {
+  private _initializeDefaultsBookmarksButton(): void {
     this.bookmarksButtonText = 'Add to Bookmarks';
     this.bookmarksButtonColor = 'warn'
   }
 
-  private parseYouTubeUrl(url: string): string {
+  /**
+   * A phase of validation about the video that users input
+   * Only YouTube videos are allowed (2 types)
+   * @requires {string} the equivalent tovideoId to play
+   */
+  private _parseYouTubeUrl(url: string): string {
     if (!url) { return; }
     if (url.includes('youtu.be')) {
       return url.split('/')[2]
@@ -64,7 +78,11 @@ export class VideoViewComponent implements OnInit {
     }
   }
 
-  private parseBookmarkStatus(status: boolean): object {
+  /**
+   * it manages the appearance of bookmark butto, depending of its status
+   * @param {boolean} status the current status of bookmark button
+   */
+  private _parseBookmarkStatus(status: boolean): object {
     if (status) {
       return { text: 'Remove from Bookmarks', color: 'basic' }
     }

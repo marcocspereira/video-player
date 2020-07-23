@@ -22,8 +22,8 @@ export class MainContentComponent implements OnInit, OnDestroy {
     private _snackBar: SnackBarService) { }
 
   async ngOnInit(): Promise<void> {
-    await this._historyService.getHistoryFromApi();
     this._initSubscriptions();
+    await this._historyService.getHistoryFromApi();
   }
 
   ngOnDestroy(): void {
@@ -43,6 +43,10 @@ export class MainContentComponent implements OnInit, OnDestroy {
     this.addUrlToHistory($event);
   }
 
+  /**
+   * Receives an URL, evaluates if is already in history and updates data
+   * @param {string} url input by user
+   */
   private async addUrlToHistory(url: string): Promise<void> {
     if (this._historyService.isInHistory(url)) {
       return;
@@ -51,6 +55,10 @@ export class MainContentComponent implements OnInit, OnDestroy {
     this._sharedData.updateUrl(url);
   }
 
+  /**
+   * subscribe to shared url and updates the urlToPlay
+   * that is sent to VideoView component
+   */
   private _initSubscriptions(): void {
     this.subscriptions.add(
       this._sharedData.url$.subscribe(url => {
