@@ -4,6 +4,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version **10.0.3**.
 
+It uses _localStorage_ for bookmarks and history and the _Django API_ to list and create entries for History. When the app starts, tries to load data from the API for History.
+
 ## Development server
 
 First time?
@@ -80,8 +82,8 @@ All these components have a corresponding `.module.ts` in order to be more easie
 
 * History (including badges with the number of videos in History)
 
-<img src="images/history.png" alt="History" width=500 height=350>
+<img src="images/history.png" alt="History" width=800 height=350>
 
 * Bookmarks (including badges with the number of videos in Bookmarks)
 
-<img src="images/bookmarks.png" alt="Bookmarks" width=500 height=350>
+<img src="images/bookmarks.png" alt="Bookmarks" width=800 height=350>
