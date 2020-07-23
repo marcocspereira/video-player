@@ -48,7 +48,7 @@ All these components have a corresponding `.module.ts` in order to be more easie
 * `ListUrls:` the ideia is to be reusable by `History` and `Bookmarks`.
 
 ### Communication between components
-* **For compone`ts with relationship like parant and child:** it is with `@Input()` and `@Output()`.
+* **For components with relationship like parant and child:** it is with `@Input()` and `@Output()`.
 * **For components without a direct relationship:** it is used the `SharedData service` with a `BehaviourSubject` URL that is shared among the components (`Sidabar` and `MainContent` components).
 
 ## Services
