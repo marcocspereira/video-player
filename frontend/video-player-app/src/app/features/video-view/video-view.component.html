@@ -1,7 +1,24 @@
-<youtube-player videoId={{videoId}} suggestedQuality="hd1080" [startSeconds]=0 class="video-player"></youtube-player>
-<br>
-<button color={{bookmarksButtonColor}} mat-raised-button color={{bookmarksButtonColor}} class="example-icon"
-  aria-label="Add to bookmarks button" (click)="emitBookmarkManaging()">
-  <mat-icon>bookmarks</mat-icon>
-  <span>{{bookmarksButtonText}}</span>
-</button>
+<div *ngIf="videoId; else noData">
+  <youtube-player videoId={{videoId}} suggestedQuality="hd1080" [startSeconds]=0 class="video-player"></youtube-player>
+  <br>
+  <button color={{bookmarksButtonColor}} mat-raised-button color={{bookmarksButtonColor}} class="example-icon"
+    aria-label="Add to bookmarks button" (click)="emitBookmarkManaging()">
+    <mat-icon>bookmarks</mat-icon>
+    <span>{{bookmarksButtonText}}</span>
+  </button>
+</div>
+
+<ng-template #noData>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>No Data</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Please add a new YouTube URL Video <mat-icon class="icon">add</mat-icon>, or get a URL from History or
+        Bookmarks (access
+        with <mat-icon class="icon">menu</mat-icon>)
+      </p>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

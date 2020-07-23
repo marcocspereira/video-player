@@ -1,15 +1,17 @@
-<mat-button-toggle-group #group="matButtonToggleGroup" value={{selectedOption}}>
-  <mat-button-toggle value="history" aria-label="History Videos">
-    <mat-icon>history</mat-icon>
+<mat-button-toggle-group #group="matButtonToggleGroup" value={{selectedOption}} class="button-toggle-group">
+  <mat-button-toggle value="history" aria-label="History Videos" class="button-toggle">
+    <mat-icon matBadge="{{historySize}}" matBadgeColor="warn" matBadgeSize="small">history</mat-icon>
   </mat-button-toggle>
-  <mat-button-toggle value="bookmarks" aria-label="Bookmarked Videos">
-    <mat-icon>bookmarks</mat-icon>
+  <mat-button-toggle value="bookmarks" aria-label="Bookmarked Videos" class="button-toggle">
+    <mat-icon matBadge="{{bookmarksSize}}" matBadgeColor="warn" matBadgeSize="small">bookmarks</mat-icon>
   </mat-button-toggle>
 </mat-button-toggle-group>
 
 
-<app-history *ngIf="group.value == 'history'; else bookmarks"></app-history>
+<app-history [videosHistory]="historyUrls" *ngIf="group.value == 'history'; else bookmarks"
+  (selectedUrlToPlay)="urlToPlay($event)">
+</app-history>
 
 <ng-template #bookmarks>
-  <app-bookmarks></app-bookmarks>
+  <app-bookmarks [videosBookmarks]="bookmarksUrls" (selectedUrlToPlay)="urlToPlay($event)"></app-bookmarks>
 </ng-template>

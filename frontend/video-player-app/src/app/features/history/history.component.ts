@@ -1,5 +1,5 @@
 import { HistoryService } from './../../core/services/history/history.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-history',
@@ -8,12 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  videosHistory: string[];
+  // Intercept input property changes with a settter
+  private _videosHistory: string[];
+  @Input() set videosHistory(value: string[]) {
+    this._videosHistory = value;
+  };
+  get videosHistory(): string[] {
+    return this._videosHistory;
+  }
 
-  constructor(private _historyService: HistoryService) { }
+  @Output() selectedUrlToPlay = new EventEmitter<string>();
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.videosHistory = this._historyService.getHistory();
+  }
+
+  /**
+   * Helper method that transmits the URL to play
+   * @param {string} element selected by user
+   */
+  historyUrlToPlay($event) {
+    this.selectedUrlToPlay.emit($event);
   }
 
 }

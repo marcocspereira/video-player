@@ -1,5 +1,5 @@
 <mat-selection-list [multiple]="false">
-  <mat-list-option *ngFor="let element of list" [value]="element">
+  <mat-list-option *ngFor="let element of list" [value]="element" class="mat-list-option" (click)=playThis(element)>
     {{element}}
   </mat-list-option>
 </mat-selection-list>

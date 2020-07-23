@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { BookmarksModule } from './features/bookmarks/bookmarks.module';
 import { HistoryModule } from './features/history/history.module';
 import { VideoViewModule } from './features/video-view/video-view.module';
@@ -21,6 +22,7 @@ import { MainContentComponent } from './core/layout/main-content/main-content.co
     MainContentComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

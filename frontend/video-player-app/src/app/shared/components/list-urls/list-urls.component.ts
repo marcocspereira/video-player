@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-list-urls',
@@ -19,8 +19,17 @@ export class ListUrlsComponent implements OnInit {
   get list(): string[] {
     return this._list;
   }
+  @Output() urlToPlay = new EventEmitter<string>();
 
   ngOnInit(): void {
+  }
+
+  /**
+   * Helper method that triggers the event to send the URL to play
+   * @param {string} element selected by user
+   */
+  playThis(element): void {
+    this.urlToPlay.emit(element);
   }
 
 }
