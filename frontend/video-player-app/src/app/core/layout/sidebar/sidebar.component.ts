@@ -2,14 +2,14 @@ import { BookmarksService } from './../../services/bookmarks/bookmarks.service';
 import { HistoryService } from './../../services/history/history.service';
 import { Subscription } from 'rxjs';
 import { SharedDataService } from './../../services/shared-data/shared-data.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit, OnDestroy {
+export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   selectedOption = 'history';
   subscriptions = new Subscription();
@@ -27,6 +27,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this._initDefaults();
     this._initSubscriptions();
+    this._getData();
+  }
+
+  async ngAfterViewInit(): Promise<void> {
+    await this._historyService.getHistoryFromApi();
     this._getData();
   }
 

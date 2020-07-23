@@ -23,7 +23,6 @@ export class MainContentComponent implements OnInit, OnDestroy {
 
   async ngOnInit(): Promise<void> {
     this._initSubscriptions();
-    await this._historyService.getHistoryFromApi();
   }
 
   ngOnDestroy(): void {
