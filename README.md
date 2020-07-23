@@ -20,13 +20,15 @@ The small Django application stores and lists the player history with a simple E
 
 ## Front End
 
-The Angular application is composed of an input form, just below a video view (player or empty square if there is nothing to display) and, additionally, lists of bookmarks and history.
+The Angular application is composed of a Single Page Application (SPA) with an input form, just below a video view (player or empty square if there is nothing to display) and, additionally, lists of bookmarks and history.
 
 [Check front end folder](frontend/video-player-app/README.md), where you have the source code and instructions to configure and start the project the API side.
 
 ### Requirements
-* Receive YouTube video URLs
+* Input YouTube video URLs
 * List bookmarks
 * List history
 * Play YouTube video URLs
 * Use *LocalStorage*
+* Integrate, with Django API, the creation and list of historic URLs
+* Display the number of bookmarked YouTube video URLS
